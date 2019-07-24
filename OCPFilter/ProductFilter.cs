@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace OCPFilter
 {
@@ -6,13 +7,7 @@ namespace OCPFilter
     {
         public IEnumerable<Product> Filter(IEnumerable<Product> products, ISpecification<Product> specification)
         {
-            foreach (var product in products)
-            {
-                if (specification.IsSatisfied(product))
-                {
-                    yield return product;
-                }
-            }
+            return products.Where(product => specification.IsSatisfied(product));
         }
     }
 }
