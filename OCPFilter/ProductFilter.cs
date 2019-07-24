@@ -7,7 +7,7 @@ namespace OCPFilter
     {
         public IEnumerable<Product> Filter(IEnumerable<Product> products, ISpecification<Product> specification)
         {
-            return products.Where(product => specification.IsSatisfied(product));
+            return products.Where(specification.IsSatisfied);
         }
     }
 }
